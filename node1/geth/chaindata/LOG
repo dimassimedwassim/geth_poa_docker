@@ -1,0 +1,46 @@
+=============== Jun 26, 2018 (CEST) ===============
+15:53:15.986858 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+15:53:15.988226 db@open opening
+15:53:15.988960 version@stat F·[] S·0B[] Sc·[]
+15:53:15.990227 db@janitor F·2 G·0
+15:53:15.990258 db@open done T·2.008878ms
+=============== Jun 26, 2018 (CEST) ===============
+16:01:11.414092 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:01:11.414374 version@stat F·[] S·0B[] Sc·[]
+16:01:11.414394 db@open opening
+16:01:11.414517 journal@recovery F·1
+16:01:11.420523 journal@recovery recovering @1
+16:01:11.425372 memdb@flush created L0@2 N·625 S·50KiB "\x02d\xfc..\x19Ba,v540":"\xfe\x88\xcf..H\xef\xcc,v318"
+16:01:11.431946 version@stat F·[1] S·50KiB[50KiB] Sc·[0.25]
+16:01:11.433432 db@janitor F·3 G·0
+16:01:11.433465 db@open done T·19.059521ms
+=============== Jun 26, 2018 (CEST) ===============
+16:01:53.924575 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:01:53.924879 version@stat F·[1] S·50KiB[50KiB] Sc·[0.25]
+16:01:53.924899 db@open opening
+16:01:53.925002 journal@recovery F·1
+16:01:53.930769 journal@recovery recovering @3
+16:01:53.931755 memdb@flush created L0@5 N·3 S·494B "Dat..ion,v627":"cli..0\xde\x1d,v629"
+16:01:53.956211 version@stat F·[2] S·51KiB[51KiB] Sc·[0.50]
+16:01:53.957730 db@janitor F·4 G·0
+16:01:53.957757 db@open done T·32.84542ms
+=============== Jun 26, 2018 (CEST) ===============
+16:02:48.449860 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:02:48.450237 version@stat F·[2] S·51KiB[51KiB] Sc·[0.50]
+16:02:48.450259 db@open opening
+16:02:48.450386 journal@recovery F·1
+16:02:48.455945 journal@recovery recovering @6
+16:02:48.456894 memdb@flush created L0@8 N·2 S·239B "Dat..ion,v631":"Las..der,v632"
+16:02:48.481963 version@stat F·[3] S·51KiB[51KiB] Sc·[0.75]
+16:02:48.483626 db@janitor F·5 G·0
+16:02:48.483669 db@open done T·33.384375ms
+16:44:39.004360 table@compaction L0·3 -> L1·0 S·51KiB Q·2291
+16:44:39.009061 table@build created L1@11 N·627 S·50KiB "\x02d\xfc..\x19Ba,v540":"\xfe\x88\xcf..H\xef\xcc,v318"
+16:44:39.009182 version@stat F·[0 1] S·50KiB[0B 50KiB] Sc·[0.00 0.00]
+16:44:39.009786 table@compaction committed F-2 S-628B Ke·0 D·3 T·5.382274ms
+16:44:39.009926 table@remove removed @8
+16:44:39.010002 table@remove removed @5
+16:44:39.010083 table@remove removed @2
+=============== Jun 29, 2018 (CEST) ===============
+12:14:17.021282 db@close closing
+12:14:17.021412 db@close done T·128.975µs

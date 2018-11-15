@@ -1,0 +1,50 @@
+version: '2'
+services:
+  authority1:
+    build: ./geth_poa_client
+    restart: on-failure
+    container_name: authority1
+    hostname: authority1
+    entrypoint: /root/start.sh
+    command: '--datadir=~/.ethereum/devchain --rpccorsdomain="*" --nodekeyhex=9a4cf669b67b39970fb661b0cda670e0e9003ecb932d752c58948bfe1e5a65a1 --rpcapi "db,personal,eth,net,web3" --rpccorsdomain="*" --networkid=951623 --rpc --rpcaddr="0.0.0.0" --gasprice "1" -unlock "0xe3f75ec41ede37562551fda6342757efa5a38ed0" --password "/root/files/password.txt" --mine'
+    volumes:
+      - ./files/password:/root/files/password:ro
+      - ./files/genesis.json:/root/files/genesis.json:ro
+      - ./files/keystore_n1:/root/.ethereum/devchain/keystore:rw
+      - ./files/password.txt:/root/files/password.txt
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "30303:30303"
+      - "30303:30303/udp"
+      - "8545:8545"
+    networks:
+      app_net:
+        ipv4_address: 172.16.238.10
+  authority2:
+      build: ./geth_poa_client
+      restart: on-failure
+      container_name: authority2
+      hostname: authority2
+      links:
+        - authority1
+      entrypoint: /root/start.sh
+      command: '--datadir=~/.ethereum/devchain --networkid=951623 --syncmode "full" --bootnodes="enode://8b0ecc5df7ef6b35fd769d2dbe5d837a9c955b9883450dffdf98090d6e6207754fe534b3bc50e55982eb08b8cbcd4f0dc601e88d6c7e934a7009f14aa26826ec@172.16.238.10:30303" --rpcapi "db,personal,eth,net,web3" --rpccorsdomain="*" --networkid=951623 --rpc --rpcaddr="0.0.0.0" --gasprice "1"'
+      volumes:
+        - ./files/password:/root/files/password:ro
+        - ./files/genesis.json:/root/files/genesis.json:ro
+        - ./files/keystore_n2:/root/.ethereum/devchain/keystore:rw
+        - ./files/password.txt:/root/files/password.txt
+        - /etc/localtime:/etc/localtime:ro
+      depends_on:
+        - authority1
+      networks:
+        app_net:
+          ipv4_address: 172.16.238.11
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.238.0/24
+        gateway: 172.16.238.1
